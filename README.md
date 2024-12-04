@@ -7,7 +7,7 @@ This repository includes a [requirements file](requirements.txt) specifying the 
 ## Training Data Construction
 We use one of the subset of UltraFeedback provided in [princeton-nlp/llama3-ultrafeedback-armorm](https://huggingface.co/datasets/princeton-nlp/llama3-ultrafeedback-armorm) to construct our training dataset.
 
-Our training dataset contains quadruples of $(x, y_{w_s}, y_{w_t}, y_l)$, where $y_{w_s}$ is a response from Source the LLMs, $y_{w_t}$ and $y_l$ are responses from the Target LLM.
+Our training dataset contains quadruples of (x, y<sub>w<sub>s</sub></sub>, y<sub>w<sub>t</sub></sub>, y<sub>l</sub>), where y<sub>w<sub>s</sub></sub> is a response from Source the LLMs, y<sub>w<sub>t</sub></sub> and y<sub>l</sub> are responses from the Target LLM.
 
 
 ### Target & Source LLMs
@@ -27,22 +27,22 @@ The Target and Source LLMs, along with their corresponding Huggingface IDs, are 
 | Yi-1.5-34B-Chat              | [01-ai/Yi-1.5-34B-Chat](https://huggingface.co/01-ai/Yi-1.5-34B-Chat)                                             |
 | Phi-3-medium-4k-instruct     | [microsoft/Phi-3-medium-4k-instruct](https://huggingface.co/microsoft/Phi-3-medium-4k-instruct)                   |
 
-### Construction of $y_{w_s}$
+### Construction of y<sub>w<sub>s</sub></sub>
 1. For each prompt in the [Ultrafeedback](https://huggingface.co/datasets/princeton-nlp/llama3-ultrafeedback-armorm) dataset, we sample five responses from each source LLM. This was done using top-p sampling (p=0.95) with a temperature of 0.8, following the pipeline in the [SimPO repository](https://github.com/princeton-nlp/SimPO). 
 
-2. We employ [ArmoRM-LLaMA3-8B-v0.1](https://huggingface.co/RLHFlow/ArmoRM-Llama3-8B-v0.1) as the reward model to score and rank these responses. The highest-scoring response across all source models is selected as one of the preferred responses, $y_{w_s}$. 
+2. We employ [ArmoRM-LLaMA3-8B-v0.1](https://huggingface.co/RLHFlow/ArmoRM-Llama3-8B-v0.1) as the reward model to score and rank these responses. The highest-scoring response across all source models is selected as one of the preferred responses, y<sub>w<sub>s</sub></sub>. 
 
 
-### Construction of $y_{w_t}$ and $y_l$
+### Construction of y<sub>w<sub>t</sub></sub> and y<sub>l</sub>
 
 1. The dataset is split into two parts: one-third of the data instances are randomly sampled for supervised fine-tuning (SFT), while the remaining instances are used for preference optimization, as detailed in our paper.
 
-2. We apply Supervised Fine-Tuning (SFT) on the set of $y_{w_s}$ using first part of the dataset.
+2. We apply Supervised Fine-Tuning (SFT) on the set of y<sub>w<sub>s</sub></sub> using first part of the dataset.
 
-3. We then generate five samples from the SFT model using the remaining dataset. The response with the highest score is labeled as $y_{w_t}$, while the lowest-scoring response is regarded as $y_l$. 
+3. We then generate five samples from the SFT model using the remaining dataset. The response with the highest score is labeled as y<sub>w<sub>t</sub></sub>, while the lowest-scoring response is regarded as y<sub>l</sub>. 
 
 
-Below is a example instance of our dataset, where "chosen" is a list containing [$y_{w_s}$, $y_{w_t}$], and "rejected" is a list containing [$y_l$].
+Below is a example instance of our dataset, where "chosen" is a list containing [y<sub>w<sub>s</sub></sub>, y<sub>w<sub>t</sub></sub>], and "rejected" is a list containing [y<sub>l</sub>].
 
 ```
 {
