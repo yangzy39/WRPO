@@ -53,11 +53,10 @@ class WRPOConfig(DPOConfig):
         default=0.1,
         metadata={"help": "The end weight for source LLM responses in WRPO loss."},
     )
-    training_steps: Optional[float] = field(
-        default=311,
-        metadata={"help": "Total training steps"},
+    is_dynamic: bool = field(
+        default=True,
+        metadata={"help": "Whether to use dynamic tuning alpha."},
     )
-
 
 def apply_chat_template(
     example,
@@ -232,6 +231,8 @@ def main():
     )
 
     model = model_args.model_name_or_path
+    training_args.dataset_num_proc = data_args.preprocessing_num_workers
+
     if is_adapter_model(model, model_args.model_revision) is True:
         logger.info(f"Loading SFT adapter for {model_args.model_name_or_path=}")
         peft_config = PeftConfig.from_pretrained(model_args.model_name_or_path, revision=model_args.model_revision)
@@ -282,7 +283,6 @@ def main():
         loss_type=training_args.loss_type,
         dataset_num_proc=data_args.preprocessing_num_workers,
     )
-    print(trainer)
 
     ###############
     # Training loop
