@@ -1,4 +1,23 @@
-# Weighted-Reward Preference Optimization (WRPO)
+<p align="center" width="100%">
+</p>
+
+<div id="top" align="center">
+
+Weighted-Reward Preference Optimization for Implicit Model Fusion
+-----------------------------
+<img src="https://img.shields.io/badge/Version-1.0.0-blue.svg" alt="Version"> 
+<img src="https://img.shields.io/badge/License-Apache_2.0-green.svg" alt="License">
+<img src="https://img.shields.io/github/stars/yangzy39/WRPO?color=yellow" alt="Stars">
+<img src="https://img.shields.io/github/issues/yangzy39/WRPO?color=red" alt="Issues">
+
+<h4> |<a href="https://arxiv.org/abs/2412.03187"> 📑 WRPO Paper Preprint</a> |
+<a href="https://huggingface.co/FuseAI"> 🤗 HuggingFace Repo </a> |
+<a href="https://github.com/yangzy39/WRPO"> 🐱 GitHub Repo </a> |
+</h4>
+
+
+</div>
+
 
 ## Requirements
 
@@ -83,4 +102,14 @@ ACCELERATE_LOG_LEVEL=info accelerate launch --config_file training_configs/deeps
 * To run Target-SFT-WRPO:
 ```shell
 ACCELERATE_LOG_LEVEL=info accelerate launch --config_file training_configs/deepspeed_zero3.yaml scripts/run_wrpo.py training_configs/llama-3-8b-instruct-sft-wrpo.yaml
+```
+
+## Citation
+```
+@article{yang2024wrpo,
+  title={Weighted-Reward Preference Optimization for Implicit Model Fusion},
+  author={Ziyi Yang and Fanqi Wan and Longguang Zhong and Tianyuan Shi and Xiaojun Quan},
+  journal={arXiv preprint arXiv:2412.03187},
+  year={2024}
+}
 ```
