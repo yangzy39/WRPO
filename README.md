@@ -18,6 +18,20 @@ Weighted-Reward Preference Optimization for Implicit Model Fusion
 
 </div>
 
+## Overview
+In this work, we introduce Weighted-Reward Preference Optimization (WRPO) for the implicit model fusion of heterogeneous open-source LLMs with diverse architectures and sizes, aiming to create a more capable and robust target LLM. 
+As shown in Figure below, this objective introduces a fusion coefficient $\alpha$ that dynamically balances the internal reward of the preferred response y<sub>w<sub>s</sub></sub> from source LLMs and that of y<sub>w<sub>t</sub></sub> from the target during training. This approach enables the target LLM to transition smoothly from its distribution to align with that of the source LLMs.
+<p align="center">
+    <img src="./assets/wrpo_method.png" width="90%"> <br>
+</p>
+
+## Overall Results
+In our experiments, we use LLaMA3-8B-Instruct as the target LLM. As for the source LLMs, we include ten advanced open-source models of varying architectures and sizes. We assess the performance of our models on three representative instruction-following benchmarks: MT-Bench, AlpacaEval-2, and Arena-Hard. Extensive experiments demonstrate that WRPO consistently outperforms existing knowledge fusion methods and various fine-tuning baselines.
+<p align="center">
+    <img src="./assets/main_results.png" width="70%"> <br>
+</p>
+
+
 
 ## Requirements
 
