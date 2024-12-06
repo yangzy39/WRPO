@@ -42,7 +42,7 @@ The Target and Source LLMs, along with their corresponding Huggingface IDs, are 
 3. We then generate five samples from the SFT model using the remaining dataset. The response with the highest score is labeled as y<sub>w<sub>t</sub></sub>, while the lowest-scoring response is regarded as y<sub>l</sub>. 
 
 
-Below is a example instance of our dataset, where "chosen" is a list containing [y<sub>w<sub>s</sub></sub>, y<sub>w<sub>t</sub></sub>], and "rejected" is a list containing [y<sub>l</sub>].
+Below is an example instance of our dataset, where "chosen" is a list containing [y<sub>w<sub>s</sub></sub>, y<sub>w<sub>t</sub></sub>], and "rejected" is a list containing [y<sub>l</sub>].
 
 ```
 {
