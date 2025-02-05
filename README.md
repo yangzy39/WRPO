@@ -10,7 +10,7 @@ Weighted-Reward Preference Optimization for Implicit Model Fusion
 <img src="https://img.shields.io/github/stars/yangzy39/WRPO?color=yellow" alt="Stars">
 <img src="https://img.shields.io/github/issues/yangzy39/WRPO?color=red" alt="Issues">
 
-<h4> |<a href="https://arxiv.org/abs/2412.03187"> 📑 WRPO Paper Preprint</a> |
+<h4> |<a href="https://openreview.net/forum?id=fq24pEb8SL"> 📑 WRPO Paper</a> |
 <a href="https://huggingface.co/FuseAI"> 🤗 HuggingFace Repo </a> |
 <a href="https://github.com/yangzy39/WRPO"> 🐱 GitHub Repo </a> |
 </h4>
