@@ -120,10 +120,11 @@ ACCELERATE_LOG_LEVEL=info accelerate launch --config_file training_configs/deeps
 
 ## Citation
 ```
-@article{yang2024wrpo,
-  title={Weighted-Reward Preference Optimization for Implicit Model Fusion},
-  author={Ziyi Yang and Fanqi Wan and Longguang Zhong and Tianyuan Shi and Xiaojun Quan},
-  journal={arXiv preprint arXiv:2412.03187},
-  year={2024}
+@inproceedings{
+    yang2025weightedreward,
+    title={Weighted-Reward Preference Optimization for Implicit Model Fusion},
+    author={Ziyi Yang and Fanqi Wan and Longguang Zhong and Tianyuan Shi and Xiaojun Quan},
+    booktitle={The Thirteenth International Conference on Learning Representations},
+    year={2025}
 }
 ```
