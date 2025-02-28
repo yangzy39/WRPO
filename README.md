@@ -10,8 +10,8 @@ Weighted-Reward Preference Optimization for Implicit Model Fusion
 <img src="https://img.shields.io/github/stars/yangzy39/WRPO?color=yellow" alt="Stars">
 <img src="https://img.shields.io/github/issues/yangzy39/WRPO?color=red" alt="Issues">
 
-<h4> |<a href="https://openreview.net/forum?id=fq24pEb8SL"> 📑 WRPO Paper</a> |
-<a href="https://huggingface.co/FuseAI"> 🤗 HuggingFace Repo </a> |
+<h4> |<a href="https://arxiv.org/abs/2412.03187"> 📑 WRPO Paper</a> |
+<a href="https://huggingface.co/AALF"> 🤗 HuggingFace Repo </a> |
 <a href="https://github.com/yangzy39/WRPO"> 🐱 GitHub Repo </a> |
 </h4>
 
@@ -38,7 +38,7 @@ In our experiments, we use LLaMA3-8B-Instruct as the target LLM. As for the sour
 This repository includes a [requirements file](requirements.txt) specifying the Python package versions used in our experiments. We utilized `Python 3.10` and `CUDA 12.2` for this work.
 
 ## Training Data Construction
-We use one of the subset of UltraFeedback provided in [princeton-nlp/llama3-ultrafeedback-armorm](https://huggingface.co/datasets/princeton-nlp/llama3-ultrafeedback-armorm) to construct our training dataset.
+We use one of the subset of UltraFeedback provided in [princeton-nlp/llama3-ultrafeedback-armorm](https://huggingface.co/datasets/princeton-nlp/llama3-ultrafeedback-armorm) to construct our training dataset. We provide source LLM responses in [AALF/ultrafeedback_wrpo](https://huggingface.co//datasets/AALF/ultrafeedback_wrpo).
 
 Our training dataset contains quadruples of (x, y<sub>w<sub>s</sub></sub>, y<sub>w<sub>t</sub></sub>, y<sub>l</sub>), where y<sub>w<sub>s</sub></sub> is a response from Source the LLMs, y<sub>w<sub>t</sub></sub> and y<sub>l</sub> are responses from the Target LLM.
 
@@ -104,7 +104,7 @@ Below is an example instance of our dataset, where "chosen" is a list containing
 ```
 ## Training configurations
 
-We provide configuration files for both training stages, designed for an environment with 8x80G A800 GPUs. You may need to adjust `num_processes` and `per_device_train_batch_size` based on your specific computational setup.
+Our training code is built upon the [alignment-handbook repo](https://github.com/huggingface/alignment-handbook) and [SimPO repo](https://github.com/princeton-nlp/SimPO). We provide configuration files for both training stages, designed for an environment with 8x80G A800 GPUs. You may need to adjust `num_processes` and `per_device_train_batch_size` based on your specific computational setup.
 
 ### Commands
 
